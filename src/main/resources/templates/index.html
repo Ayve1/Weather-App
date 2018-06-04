@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot Thymeleaf Hello World Example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" type="text/css"
+          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" th:href="@{/css/main.css}"
+          href="../static/css/main.css" />
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Weather App</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="starter-template">
+        <h1>Weather Controll data</h1>
+        <h2>
+            <!--/*@thymesVar id="message" type=""*/-->
+            <!--<span th:text="'Message: ' + ${message}"></span>-->
+            <h2>Get actual data</h2>
+            <button type="button">Now!</button>
+        </h2>
+    </div>
+    <br />
+    <hr />
+    <form action="...">
+        <select name="nazwa">
+            <option>dolnośląskie</option>
+            <option>kujawsko-pomorskie </option>
+            <option>lubelskie </option>
+            <option>lubuskie </option>
+            <option>łódzkie </option>
+            <option>małopolskie </option>
+            <option>mazowieckie </option>
+            <option>opolskie </option>
+            <option>podkarpackie </option>
+            <option>podlaskie </option>
+            <option>pomorskie </option>
+            <option>śląskie </option>
+            <option>świętokrzyskie </option>
+            <option>warmińsko-mazurskie </option>
+            <option>wielkopolskie </option>
+            <option>zachodniopomorskie </option>
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+    <hr />
+    <br />
+    <div>
+        <table style="width:100%">
+            <tr>
+                <th>Id</th>
+                <th>District</th>
+                <th>Date</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Mazowieckie</td>
+                <td>28.05.19 16:00</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Świetokrzyskie</td>
+                <td>28.05.19 16:00</td>
+                <td>2</td>
+            </tr>
+        </table>
+    </div>
+    <hr />
+
+</div>
+<!-- /.container -->
+
+<script type="text/javascript"
+        src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>
