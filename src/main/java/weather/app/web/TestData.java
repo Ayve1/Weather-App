@@ -11,11 +11,14 @@ public class TestData {
     String province;
     String date;
     int value;
+    String state;
 
-    public TestData(String p,String d, int v){
+    public TestData(String p,String d, int v, String s){
         province = p;
         date = d;
         value = v;
+        state = s;
+
     }
 
     public TestData(String p){
@@ -23,6 +26,11 @@ public class TestData {
         this.date = new Date().toString();
         Random gen = new Random();
         value = gen.nextInt(9)+1;
+        if (value >=8)
+            state = "very good";
+        else if ( value >= 6)
+            state = "tolerable";
+        else state = "good";
     }
 
     public TestData(String p, String d){
@@ -30,6 +38,11 @@ public class TestData {
         date = d;
         Random gen = new Random();
         value = gen.nextInt(9)+1;
+        if (value >=8)
+            state = "very good";
+        else if ( value >= 6)
+            state = "tolerable";
+        else state = "good";
     }
 
     public String toString(){
@@ -39,5 +52,6 @@ public class TestData {
     public double getValue(){return value;}
     public String getDate(){return date;}
     public String getProvince(){return province;}
+    public String getState(){return state;}
 
 }

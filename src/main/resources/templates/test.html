@@ -54,12 +54,14 @@
                 <th>Date</th>
                 <th>District</th>
                 <th>Value</th>
+                <th>state</th>
             </tr>
             <tr th:each="x, iter: ${testData}">
                 <td th:text="${iter.index+1}">id test.</td>
                 <td th:text="${x.date}">date test</td>
                 <td th:text="${x.province}">province test</td>
                 <td th:text="${x.value}">value test</td>
+                <td th:text="${x.state}">value state</td>
             </tr>
         </table>
     </div>
