@@ -16,11 +16,12 @@
 <nav class="navbar navbar-inverse">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Weather App</a>
+            <a class="navbar-brand" href="#">Aplikacja pogodowa</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="">Home</a></li>
+                <li class="active"><a href="/">Pogoda</a></li>
+                <li class="active"><a href="/test">Test</a></li>
             </ul>
         </div>
     </div>
@@ -29,39 +30,52 @@
 <div class="container">
 
     <div class="starter-template">
-        <h1>Weather Control data</h1>
+        <h1>System pogodowy</h1>
             <!--/*@thymesVar id="message" type=""*/-->
             <!--<span th:text="'Message: ' + ${message}"></span>-->
-        <h2>Get actual data</h2>
+        <h2>Pobierz aktualne dane</h2>
         <form action="/newData">
-            <input type="submit" value="Now">
+            <input type="submit" value="Click">
         </form>
     </div>
     <br />
     <hr />
-    <form action="/test" method="post">
-        <select name="provinceName">
-            <option th:each="x : ${provinces}" th:text="${x}"> >dolnośląskie</option>
-        </select>
-        <input type="submit" value="Submit">
-    </form>
+    <div>
+        <div align="left">
+            <form action="/test" method="post">
+                <h4>Wybierz wojewódźtwo</h4>
+                <select name="provinceName">
+                    <option th:each="x : ${provinces}" th:text="${x}"> >dolnośląskie</option>
+                </select>
+                <input type="submit" value="Potwierdź">
+            </form>
+        </div>
+        <div align="right">
+            <form action="/prediction" method="post">
+                Przewidywanie pogody
+                <input type="submit" value="Potwierdź">
+            </form>
+        </div>
+    </div>
     <hr />
     <br />
     <div>
         <table style="width:100%">
             <tr>
                 <th>Id</th>
-                <th>Date</th>
-                <th>District</th>
-                <th>Value</th>
-                <th>state</th>
+                <th>Data</th>
+                <th>Wojewódźtwo</th>
+                <th>Składnik</th>
+                <th>Wartość</th>
+                <th>Stan</th>
             </tr>
             <tr th:each="x, iter: ${testData}">
                 <td th:text="${iter.index+1}">id test.</td>
                 <td th:text="${x.date}">date test</td>
                 <td th:text="${x.province}">province test</td>
-                <td th:text="${x.value}">value test</td>
-                <td th:text="${x.state}">value state</td>
+                <td th:text="${x.component}">component test</td>
+                <td th:text="${#numbers.formatDecimal(x.value, 0, 'COMMA', 2, 'POINT')}">value test</td>
+                <td th:text="${x.state}">state test</td>
             </tr>
         </table>
     </div>

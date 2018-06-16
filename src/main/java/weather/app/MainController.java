@@ -33,7 +33,6 @@ public class MainController {
     @RequestMapping("/test")
     public String test(Model model) {
         DataExample data = new DataExample();
-        Collections.reverse(data.getData());
         model.addAttribute("provinces", data.getProvinces());
         model.addAttribute("testData", data.getData());
         return "test";
@@ -47,11 +46,18 @@ public class MainController {
         model.addAttribute("provinces", data.getProvinces());
         model.addAttribute("testData", testData);
     }
-    @RequestMapping(value="/newData")
-    public String selectedProvince(Model model) {
+
+    @RequestMapping("/newData")
+    public String newData(Model model) {
         DataExample data = new DataExample();
-        data.addMore();
-        Collections.reverse(data.getData());
+        model.addAttribute("provinces", data.getProvinces());
+        model.addAttribute("testData", data.getData());
+        return "test";
+    }
+
+    @RequestMapping("/prediction")
+    public String prediction(Model model) {
+        DataExample data = new DataExample(true);
         model.addAttribute("provinces", data.getProvinces());
         model.addAttribute("testData", data.getData());
         return "test";

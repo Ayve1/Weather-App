@@ -2,10 +2,7 @@ package weather.app.web;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class DataExample {
     List<TestData> data;
@@ -16,7 +13,13 @@ public class DataExample {
         data = new ArrayList<TestData>();
         provinces = new ArrayList<String>();
         makeProvinces();
-        makeTest();
+        makeTestData();
+    }
+    public DataExample(boolean b){
+        data = new ArrayList<TestData>();
+        provinces = new ArrayList<String>();
+        makeProvinces();
+        predictionTestData();
     }
 
     public void makeProvinces(){
@@ -53,6 +56,30 @@ public class DataExample {
         }
     }
 
+    public void makeTestData(){
+        Random gen = new Random();
+        for (String province: provinces){
+            data.add(new TestData(province, gen.nextDouble()*80, "pm10", true));
+            data.add(new TestData(province, gen.nextDouble()*50, "pm2.5", true));
+            data.add(new TestData(province, gen.nextDouble()*130, "o3", true));
+            data.add(new TestData(province, gen.nextDouble()*110, "no2", true));
+            data.add(new TestData(province, gen.nextDouble()*130, "so2", true));
+            data.add(new TestData(province, gen.nextDouble()*14, "c6h6", true));
+            data.add(new TestData(province, gen.nextDouble()*10, "co", true));
+        }
+    }
+    public void predictionTestData(){
+        Random gen = new Random();
+        for (String province: provinces){
+            data.add(new TestData(province, gen.nextDouble()*80, "pm10", false));
+            data.add(new TestData(province, gen.nextDouble()*50, "pm2.5", false));
+            data.add(new TestData(province, gen.nextDouble()*130, "o3", false));
+            data.add(new TestData(province, gen.nextDouble()*110, "no2", false));
+            data.add(new TestData(province, gen.nextDouble()*130, "so2", false));
+            data.add(new TestData(province, gen.nextDouble()*14, "c6h6", false));
+            data.add(new TestData(province, gen.nextDouble()*10, "co", false));
+        }
+    }
     public String toString(){
         String s = "";
         for(TestData test : data){
